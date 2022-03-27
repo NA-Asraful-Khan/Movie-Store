@@ -1,3 +1,3 @@
 # Movie Store
 
-Click the link for go to the movie store [Create React App](https://github.com/facebook/create-react-app).
+Click the link for go to the movie store: [https://movie-store-of-naa.netlify.app/](https://movie-store-of-naa.netlify.app/).
