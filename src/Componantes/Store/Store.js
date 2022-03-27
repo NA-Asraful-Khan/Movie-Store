@@ -32,7 +32,6 @@ const Store = () => {
         const newCart = [productItem[random]]
         setCart(removeCart);
         setRandom(newCart)
-        console.log(productItem)
     }
     
 
