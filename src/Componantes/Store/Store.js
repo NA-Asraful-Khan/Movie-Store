@@ -6,6 +6,7 @@ import './Store.css';
 const Store = () => {
     const [products, setProducts] = useState([]);
     const [cart , setCart] = useState([]);
+    const [random , setRandom] = useState([]);
     useEffect(()=>{
         fetch('fakedata.json')
         .then(res => res.json())
@@ -18,7 +19,7 @@ const Store = () => {
         console.log(newCart);
     }
 
-    const random = (products)=>{
+    const randombutton = (products)=>{
         const random = Math.floor(Math.random() * 11);
         const productItem = [];
         for(const product of products){
@@ -28,13 +29,14 @@ const Store = () => {
         //     productItem.push(item.id)
         // ))
         const newCart = [productItem[random]]
-        setCart(newCart)
+        setRandom(newCart)
     }
 
 
     const removeAll = ()=>{
         const removeCart = [];
         setCart(removeCart);
+        setRandom(removeCart);
     }
     
     return (
@@ -54,9 +56,15 @@ const Store = () => {
                     {cart.map((item) => (
                         <Cart key={item.id} cart={item}></Cart>
                     ))}
+                    {random.map((item) => (
+                        <Cart key={item.id} cart={item}></Cart>
+                    ))}
+                    
 
-                    <button className='random-button' onClick={()=>random(products)}>Choose for me</button>
-                    <button className='remove-button' onClick={()=>removeAll()}>Remove All</button>
+                    <div className='cart-button'>
+                        <button className='random-button' onClick={()=>randombutton(products)}>Choose for me</button>
+                        <button className='remove-button' onClick={()=>removeAll()}>Remove All</button>
+                    </div>
              </div>   
             </div>
         </div>

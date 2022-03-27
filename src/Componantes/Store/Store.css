@@ -9,18 +9,45 @@
     grid-template-columns: repeat(3,1fr);
 }
 .cartContainer{
+    position: relative;
     height: 100%;
-    background-color: rgba(255, 0, 55, 0.39);
+    border: 1px solid rgb(255, 0, 55);
+    border-radius: 10px;
+    margin: 10px;
+    background-color: rgb(248, 218, 224);
 }
 .cart{
     position: sticky;
     display: grid;
     grid-template-columns: repeat(1,1fr);
     top: 0;
-    color: white;
+    color: rgb(255, 0, 55);
     padding: 10px;
+    
 }
-
+.cart h2{
+    margin-bottom: 20px;
+    text-align: center;
+}
+.cart-button{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+}
+.cart-button button{
+    border: 1px solid rgb(255, 0, 55);
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px 10px;
+    background: none;
+}
+.cart-button button:hover{
+    background: rgb(255, 0, 55);
+    border: 1px solid rgb(255, 0, 55);
+    color: aliceblue;
+    transition: 0.5s;
+}
 
 
 @media screen and (max-width:1170px) {
