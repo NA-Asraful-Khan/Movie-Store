@@ -1,0 +1,10 @@
+.store{
+    display: grid;
+    grid-template-columns: 75% 25%;
+}
+
+.products{
+    padding: 0 10%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
