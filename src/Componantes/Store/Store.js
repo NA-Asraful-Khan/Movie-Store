@@ -1,4 +1,4 @@
-import React, { createElement, useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
 import './Store.css';
@@ -16,7 +16,6 @@ const Store = () => {
     const cartSelected =(product)=>{
         const newCart = [...cart, product]
         setCart(newCart);
-        console.log(newCart);
     }
 
     const randombutton = (products)=>{
@@ -25,12 +24,10 @@ const Store = () => {
         for(const product of products){
             productItem.push(product);
         }
-        // productItem.map(item =>(
-        //     productItem.push(item.id)
-        // ))
         const newCart = [productItem[random]]
         setRandom(newCart)
     }
+    
 
 
     const removeAll = ()=>{

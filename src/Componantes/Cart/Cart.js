@@ -1,9 +1,8 @@
 import React from 'react';
 import './Cart.css'
 
-const Cart = ({cart}) => {
-    const {img, name, price} = cart;
-    console.log(cart[0]);
+const Cart = ({cart,removecart}) => {
+    const {img, name} = cart;
     return (
         <div className='cart'>
             <div className='cart-items'>
