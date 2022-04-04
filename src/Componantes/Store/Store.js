@@ -18,7 +18,7 @@ const Store = () => {
         if (!exist) {
             const newCart = [...cart, product]
             setCart(newCart)
-        }else{
+        } else {
             alert("ALready added");
         }
 
@@ -29,21 +29,28 @@ const Store = () => {
     const removeItem = (selectedProduct) => {
         const rest = cart.filter(item => item.id !== selectedProduct.id);
         setCart(rest);
+        setRandom(rest)
+        console.log(rest)
     }
 
     const randombutton = (products) => {
-        if (randoms === []) {
-            return 0;
+
+        if (cart.length === 0) {
+            alert("Choose again");
+        } else {
+            const removeCart = [];
+            const productItem = [];
+            for (const product of products) {
+                productItem.push(product);
+            }
+            const random = Math.floor(Math.random() * productItem.length);
+            const newCart = [productItem[random]]
+            setCart(removeCart);
+            setRandom(newCart)
+            console.log(cart, randoms);
         }
-        const removeCart = [];
-        const productItem = [];
-        for (const product of products) {
-            productItem.push(product);
-        }
-        const random = Math.floor(Math.random() * productItem.length);
-        const newCart = [productItem[random]]
-        setCart(removeCart);
-        setRandom(newCart)
+
+
     }
 
 
@@ -58,11 +65,11 @@ const Store = () => {
     // conditional rendering 
     let command;
 
-    if(cart.length === 0){
+    if (cart.length === 0) {
         command = <p>Please Add Atleast 1 Item</p>
-    }else if(cart.length ===1){
+    } else if (cart.length === 1) {
         command = <p>Please Add more</p>
-    }else{
+    } else {
         command = <p>Thanks for Adding</p>
     }
 
@@ -80,7 +87,7 @@ const Store = () => {
             <div className='cartContainer'>
                 <div className='cart'>
                     <h2>Cart Box</h2>
-                    
+
                     {cart.map((carts) => (
                         <Cart key={carts.id} cart={carts} removeItem={removeItem}></Cart>
                     ))}
